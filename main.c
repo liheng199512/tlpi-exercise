@@ -2,6 +2,6 @@
 
 int main(int argc, char *argv[])
 {
-    TestCopyHoles(argc, argv);
+    TestReadVWriteV();
     return 0;
 }
