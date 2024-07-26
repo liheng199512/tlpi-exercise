@@ -8,8 +8,10 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <sys/uio.h>
+#include <sys/errno.h>
 #include <fcntl.h>
 #include <unistd.h>  // for getopt, use `-std=gnu99`
+#include <setjmp.h>
 
 #define BUF_SIZE 1024
 #define EXIT_SUCCESS 0

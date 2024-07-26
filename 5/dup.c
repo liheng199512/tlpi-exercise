@@ -1,9 +1,12 @@
 #include "tlpi.h"
 
+extern int errno;
+
 int Dup(int fd)
 {
     if (fcntl(fd, F_GETFL) == -1) {
         perror("fd is invalid");
+        errno = EBADF;
         return -1;
     }
     return fcntl(fd, F_DUPFD, 0);
@@ -13,6 +16,7 @@ int Dup2(int oldFd, int newFd)
 {
     if (fcntl(oldFd, F_GETFL) == -1) {
         perror("oldFd is invalid");
+        errno = EBADF;
         return -1;
     }
     if (oldFd == newFd) {

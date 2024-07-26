@@ -14,4 +14,9 @@ void TestDupShare();
 void TestDupWR();
 void TestReadVWriteV();
 
+// 6
+int MemSegmentsTest(int argc, char *argv[]);
+void JmpTest();
+void TestEnv();
+
 #endif
