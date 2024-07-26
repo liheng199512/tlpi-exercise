@@ -1,30 +1,5 @@
 #include "tlpi.h"
 
-int SetEnv(const char *name, const char *value, int overWrite)
-{
-    if (name == NULL || value == NULL || name[0] == '\0' || strchr(name, '=') != NULL) {
-        errno = EINVAL;
-        return -1;
-    }
-
-    if (getenv(name) != NULL && overWrite == 0) {
-        return 0;
-    }
-
-    unsetenv(name);
-
-    char *buf = malloc(strlen(name) + strlen(value) + 2);
-    if (buf == NULL) {
-        return -1;
-    }
-    int n = sprintf(buf, "%s=%s", name, value);
-    if (n < 0) {
-        return -1;
-    }
-
-    return putenv(buf);
-}
-
 int UnSetEnv(const char *name)
 {
     if (name == NULL || name[0] == '\0' || strchr(name, '=') != NULL) {
@@ -44,6 +19,31 @@ int UnSetEnv(const char *name)
         }
     }
     return EXIT_SUCCESS;
+}
+
+int SetEnv(const char *name, const char *value, int overWrite)
+{
+    if (name == NULL || value == NULL || name[0] == '\0' || strchr(name, '=') != NULL) {
+        errno = EINVAL;
+        return -1;
+    }
+
+    if (getenv(name) != NULL && overWrite == 0) {
+        return 0;
+    }
+
+    UnSetEnv(name);
+
+    char *buf = malloc(strlen(name) + strlen(value) + 2);
+    if (buf == NULL) {
+        return -1;
+    }
+    int n = sprintf(buf, "%s=%s", name, value);
+    if (n < 0) {
+        return -1;
+    }
+
+    return putenv(buf);
 }
 
 void TestEnv()
