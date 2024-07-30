@@ -12,6 +12,7 @@
 #include <fcntl.h>
 #include <unistd.h>  // for getopt, use `-std=gnu99`
 #include <setjmp.h>
+#include <pwd.h>
 
 #define BUF_SIZE 1024
 #define EXIT_SUCCESS 0

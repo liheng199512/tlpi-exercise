@@ -2,6 +2,6 @@
 
 int main(int argc, char *argv[])
 {
-    TestEnv();
+    TestGetPwNam();
     return 0;
 }

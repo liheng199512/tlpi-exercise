@@ -19,4 +19,7 @@ int MemSegmentsTest(int argc, char *argv[]);
 void JmpTest();
 void TestEnv();
 
+// 8
+void TestGetPwNam();
+
 #endif

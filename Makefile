@@ -1,4 +1,4 @@
-SRC=./6/*.c ./include/*.c ./main.c #./4/*.c ./5/*.c
+SRC=./8/*.c ./6/*.c ./4/*.c ./5/*.c ./include/*.c ./main.c #
 INC=-I./include/
 
 target:
